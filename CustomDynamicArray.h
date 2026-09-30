@@ -8,8 +8,14 @@ class CustomDynamicArray {
 public:
     CustomDynamicArray();
     CustomDynamicArray(int size);
-    void print();
+    CustomDynamicArray(const CustomDynamicArray& arr);
+    void print() const;
     friend void writeArrayInNewFile(const std::string& fileName, const CustomDynamicArray& arr);
+    CustomDynamicArray& operator=(const CustomDynamicArray& arr);
+    CustomDynamicArray& operator++(int);
+    friend CustomDynamicArray& operator-(CustomDynamicArray& arr, int number);
+    ~CustomDynamicArray();
+    // CustomDynamicArray& operator&(CustomDynamicArray& arr);
 private:
     int m_size;
     int* m_arr = nullptr;
